@@ -131,7 +131,7 @@ $(document).ready(function () {
                     var f = $("<p>").text("Forecast: " + forecast);
                     var d = $("<p>").text("Directions: " + directions);
 
-                    // Appending the paragraph and personImage we created to the "gifDiv" div we created
+                    // Appending the elements containing the hike info to the tripDiv
                     tripDiv.append(p);
                     tripDiv.append(f);
                     tripDiv.append(d);
