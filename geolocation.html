@@ -15,63 +15,93 @@
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <title>Geolocation</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+             * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #floating-panel {
+            position: absolute;
+            top: 10px;
+            left: 25%;
+            z-index: 5;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #999;
+            text-align: center;
+            font-family: 'Roboto', 'sans-serif';
+            line-height: 30px;
+            padding-left: 10px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h2 id="text-center">Enter Your Address: </h2>
-        <form id="location-form">
-            <input type="text" id="location-input" class="form-control form-control-lg">
-            <br>
-            <button type="submit" class="btn btn-primary">Search</button>
-        </form>
+    <div id="map"></div>
+
+    <div id="floating-panel">
+        <input id="address" type="textbox" value="">
+        <input id="submit" type="button" value="Geocode">
     </div>
 
     <script>
 
-        // Get location form info
-        var locationForm = document.getElementById('location-form');
+        //create map
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                //center over Seattle
+                center: { lat: 47.6062, lng: -122.3321 }
+            });
+            var geocoder = new google.maps.Geocoder();
 
-        // Listen for submit
-        locationForm.addEventListener('submit', geocode);
-
-        var lat;
-        var lng;
-
-        function geocode(event) {
-            // Prevent actual submit
-            event.preventDefault();
-
-            var location = document.getElementById('location-input').value;
-
-            //axios call
-            axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-                params: {
-                    address: location,
-                    key: 'AIzaSyA_xzfPh18rbIi49vR0OfQ1z7J3TOuAw8Y'
-                }
-            })
-                .then(function (response) {
-
-                    // Get lat and lng
-                    var lat = response.data.results[0].geometry.location.lat;
-                    var lng = response.data.results[0].geometry.location.lng;
-        
-
-                    //set to global scope?
-
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-
+            document.getElementById('submit').addEventListener('click', function () {
+                geocodeAddress(geocoder, map);
+            });
         }
-        
-        //take lat and lng
 
+        function geocodeAddress(geocoder, resultsMap) {
+            //take user input as address
+            userAddress = document.getElementById('address').value;
+            geocoder.geocode({ 'address': userAddress }, function (results, status) {
+                if (status === 'OK') {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: resultsMap,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
 
+        console.log(userAddress);
     </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_xzfPh18rbIi49vR0OfQ1z7J3TOuAw8Y&callback=initMap">
+        </script>
+</body>
+
+</html>
+
+
+
+
+
+
+</script>
 
 
 </body>
