@@ -51,11 +51,14 @@
 
 <body>
     <div id="floating-panel">
+        <!-- change input typed in value to values pulled from hiker api -->
         <input id="latlng" type="text" value="">
         <input id="submit" type="button" value="Reverse Geocode">
     </div>
     <div id="map"></div>
     <script>
+
+
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 8,
