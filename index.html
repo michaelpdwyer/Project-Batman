@@ -51,7 +51,7 @@
                     <h1 class="logo">H</h1>
                 </div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-9 sectionImage">
                 <div>
                     <!-- Image here -->
                     <img class="image" src="assets/images/hikerImage.png" alt="Hiker Pic">
@@ -62,19 +62,34 @@
 
     <!-- User Inputs -->
 
-    <div class="container">
+    <div class="container inputContainer">
         <div class="row">
             <!-- Location -->
-            <div class="col-sm-4">
+            <div class="col-sm-4 sectionInput">
                 <div class="form-group">
-                    <label for="formGroupExampleInput">Where are you located?</label>
+                    <label for="formGroupExampleInput">
+                        <div id="white">Where are you located?</div>
+                        <div id="green">_____________________________________</div>
+                    </label>
                     <input type="text" class="form-control" id="userLocation" placeholder="e.g. Seattle, WA">
                 </div>
             </div>
-            <!-- Mile Radius -->
-            <div class="col-sm-2">
+            <!-- Date -->
+            <div class="col-sm-2 sectionInput">
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Search within how many miles of you?</label><br><br>
+                    <label for="exampleFormControlSelect1">
+                        <div id="white">What day do you plan to hike?</div>
+                    </label>
+                    <input type="date" class="form-control" id="tripDate">
+                    <span id="isEmptyLeave" class="userVal"></span>
+                </div>
+            </div>
+            <!-- Mile Radius -->
+            <div class="col-sm-2 sectionInput">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">
+                        <div id="white">Search within how many miles of you?</div>
+                    </label><br><br>
                     <select class="form-control" id="radius">
                         <option>5</option>
                         <option>10</option>
@@ -86,18 +101,13 @@
                     </select>
                 </div>
             </div>
-            <!-- Date -->
-            <div class="col-sm-2">
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">What day do you plan to hike?</label>
-                    <input type="date" class="form-control" id="tripDate">
-                    <span id="isEmptyLeave" class="userVal"></span>
-                </div>
-            </div>
             <!-- Difficulty -->
-            <div class="col-sm-2">
+            <div class="col-sm-2 sectionInput">
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">What difficulty level?</label><br><br>
+                    <label for="exampleFormControlSelect1">
+                        <div id="white">What difficulty level?</div>
+                        <div id="green">__________________________</div>
+                    </label><br><br>
                     <select class="form-control" id="difficulty">
                         <option id="easyInput">Easy</option>
                         <option id="mediumInput">Medium</option>
@@ -107,8 +117,8 @@
                 </div>
             </div>
             <!-- Submit Button -->
-            <div class="col-sm-2">
-                <button id="submit" type="button" class="btn btn-outline-secondary">Submit</button>
+            <div class="col-sm-2 sectionInput">
+                <button id="submit" type="button" class="btn btn-outline-secondary">Hike!</button>
             </div>
         </div>
     </div>
