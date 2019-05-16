@@ -1,14 +1,5 @@
 $(document).ready(function () {
 
-    // Initialize Firebase (need to add...maybe? do we actually need firebase?)
-    var config = {
-
-    };
-
-    firebase.initializeApp(config);
-
-    // Create a variable to reference the database.
-    var database = firebase.database();
 
     // Capture user inputs and store them into variables
     // add a date format variable that handles trip date inputs
@@ -17,47 +8,10 @@ $(document).ready(function () {
     var dateFormat = 'MM-DD-YYYY'
     var radius = 0; //search radius, in miles, starting from user location
     var hikeLength = 0;
-    var difficulty = ''; //easy/moderate/challenging? the hiking project API has a bunch of color values that correspond to difficulty - we'll need to figure out what they mean
-    var tripDiv = $("div"); //this div will hold the api query results
-
-    function latLong(address) {
-        //use Google API to return the latitude and longitude of an address
-        //api query goes here
-        var lat = ''; //placeholder
-        var long = ''; //placeholder
-        var coordinates = {
-            latitude: lat,
-            longitude: long
-        }
-        return coordinates;
-    }
-    //this function does the reverse: takes latitude and longitude and returns
-    //the approximate address/location
-    //I'm not sure if we'll actually need this one, since the hiking api returns a location for the hike, 
-    //and I assume we can use the user address --> hike location to get directions instead of having to convert
-    //the hike location to lat and long?
-
-    function address(latitude, longitude) {
-        //use Google API to return the latitude and longitude of an address
-        //api query goes here
-        var address = ''; //placeholder string
-        return coordinates;
-    }
-
-    function getDirections(start, destination) {
-        //use Google API to get directions between two locations (start and destination)
-        var directions = ''; //placeholder variable (not sure what data type it will be?)
-        return directions;
-    }
-    //weather function gets the trip date, queries the open weather API, and returns a forecast
-    function getWeather(date) {
-        //use open weather API to get weather forecast based on historical data
-        var weather = ''; //placeholder variable (not sure what data type it will be? probably an object?)
-        return weather;
-    }
+    var difficulty = ''; //easy/moderate/challenging
 
 
-    $("#search").on("click", function (event) {
+    $("#submit").on("click", function (event) {
         // prevent page from refreshing when form tries to submit itself
         event.preventDefault();
 
