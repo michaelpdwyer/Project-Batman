@@ -1,7 +1,4 @@
 $(document).ready(function () {
-    console.log('hello');
-
-
     // Capture user inputs and store them into variables
     // add a date format variable that handles trip date inputs
     var userLocation = '';
@@ -9,7 +6,7 @@ $(document).ready(function () {
     var dateFormat = 'MM-DD-YYYY'
     var radius = 0; //search radius, in miles, starting from user location
     var difficulty = ''; //easy/moderate/challenging
-    var hikeInfo = $("div");
+    var hikeInfo = $("<div>");
 
 
     $("#submit").on("click", function (event) {
@@ -28,9 +25,7 @@ $(document).ready(function () {
         console.log(userLocation);
         console.log(tripDate);
         console.log(radius);
-        // console.log(hikeLength);
         console.log(difficulty);
-
 
         //this moment() js code captures the "trip date" field input (which is a string), stores it in 
         //the format specified by the "dateFormat" variable and displays it in that format
@@ -47,12 +42,10 @@ $(document).ready(function () {
                 var lat = response.data.results[0].geometry.location.lat;
                 var lng = response.data.results[0].geometry.location.lng;
 
-
                 //now that we have the user's latitude & longitude, we can query
                 //the hiking project API 
 
-                // Constructing a URL to search the hiking project API using 
-                // our given parameters
+                // Constructing a URL to search the hiking project API using our given parameters
                 var apiKey = '200465587-99c82a449d86e59d5af9adda84b12cbb';
 
                 var queryURL = 'https://www.hikingproject.com/data/get-trails?lat=' + lat + '&lon='
@@ -68,7 +61,6 @@ $(document).ready(function () {
                         // Storing an array of results in the results variable
                         var results = response.trails;
                         console.log(results);
-
                         //empty the hike info div
                         hikeInfo.empty();
 
