@@ -92,135 +92,138 @@
 </head>
 
 <body>
+
+
+
+
     <!-- directions side panel -->
     <div id="right-panel"></div>
     <!-- map placement -->
     <div id="map"></div>
-    <!-- user search area -->
-    <div class="row justify-content-md-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <strong>Hike Search</strong>
-                </div>
-                <br>
-                <div class="col-md-12">
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Street Address</label>
-                            <input type="text" class="form-control" id="user-address"
-                                placeholder="Type your starting address">
-                        </div>
-                    </form>
-                    <button id="search" type="submit" class="btn btn-success">Submit</button>
-                    <br><br>
-                </div>
-            </div>
-        </div><br>
-
-        <!-- map direction selection -->
-        <div id="floating-panel">
-            <b>Start: </b>
-            <select id="start">
-                <!-- examples to be populated with user input -->
-                <option value="1191 second avenue seattle, wa">Work</option>
-                <option value="Vashon, WA 98070">Vashon</option>
-                <option value="tacoma, wa">Tacoma</option>
-                <option value="11610 Trek Dr E Eatonville WA">Northwest Trek Wildlife Park
-                </option>
-                <option value="3002 Mt Angeles Rd Port Angeles, WA">Olympic National Park</option>
-                <option value="everett, wa">Everett</option>
-                <option value="issaquah, wa">Issaquah</option>
-                <option value="cle elum, wa">Cle Elum</option>
-                <option value="spokane, wa">Spokane</option>
-                <option value="portland, or">Portland</option>
-            </select>
-            <b>End: </b>
-            <select id="end">
-                <!-- examples to be populate with inputs from hiker api -->
-                <option value="1191 second avenue seattle, wa">Work</option>
-                <option value="Vashon, WA 98070">Vashon</option>
-                <option value="tacoma, wa">Tacoma</option>
-                <option value="11610 Trek Dr E Eatonville WA">Northwest Trek Wildlife Park
-                </option>
-                <option value="3002 Mt Angeles Rd Port Angeles, WA">Olympic National Park</option>
-                <option value="everett, wa">Everett</option>
-                <option value="issaquah, wa">Issaquah</option>
-                <option value="cle elum, wa">Cle Elum</option>
-                <option value="spokane, wa">Spokane</option>
-                <option value="portland, or">Portland</option>
-            </select>
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Starting </label>
+            <input type="email" class="form-control" id="userInputAddress" aria-describedby="addressHelp"
+                placeholder="Enter your address">
         </div>
+        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+    </form>
 
-        <script>
+    <div id="displayResults"></div>
 
-            //create marker variable
-            var marker;
-            // maps function
-            function initMap() {
-                var directionsDisplay = new google.maps.DirectionsRenderer({
-                    draggable: true,
-                    map: map,
-                    panel: document.getElementById('right-panel')
-                });
-                var directionsService = new google.maps.DirectionsService;
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 8,
-                    center: { lat: 47.6062, lng: -122.3321 }
-                });
-                directionsDisplay.setMap(map);
-                directionsDisplay.setPanel(document.getElementById('right-panel'));
+    <!-- map direction selection -->
+    <div id="floating-panel">
+        <b>Start: </b>
+        <select id="start">
+            <!-- examples to be populated with user input -->
+            <option value="1191 second avenue seattle, wa">Work</option>
+            <option value="47.6062, -122.3321">Vashon</option>
+            <option value="tacoma, wa">Tacoma</option>
+            <option value="11610 Trek Dr E Eatonville WA">Northwest Trek Wildlife Park
+            </option>
+            <option value="3002 Mt Angeles Rd Port Angeles, WA">Olympic National Park</option>
+            <option value="everett, wa">Everett</option>
+            <option value="issaquah, wa">Issaquah</option>
+            <option value="cle elum, wa">Cle Elum</option>
+            <option value="spokane, wa">Spokane</option>
+            <option value="portland, or">Portland</option>
+        </select>
+        <b>End: </b>
+        <select id="end">
+            <!-- examples to be populate with inputs from hiker api -->
+            <option value="1191 second avenue seattle, wa">Work</option>
+            <option value="Vashon, WA 98070">Vashon</option>
+            <option value="tacoma, wa">Tacoma</option>
+            <option value="11610 Trek Dr E Eatonville WA">Northwest Trek Wildlife Park
+            </option>
+            <option value="Fourth and Madison Building, 909 5th Ave, Seattle, WA 98164, USA">Test</option>
+            <option value="everett, wa">Everett</option>
+            <option value="issaquah, wa">Issaquah</option>
+            <option value="cle elum, wa">Cle Elum</option>
+            <option value="spokane, wa">Spokane</option>
+            <option value="portland, or">Portland</option>
+        </select>
+    </div>
 
-                var control = document.getElementById('floating-panel');
-                control.style.display = 'block';
-                map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
 
-                var onChangeHandler = function () {
-                    calculateAndDisplayRoute(directionsService, directionsDisplay);
-                };
-                document.getElementById('start').addEventListener('change', onChangeHandler);
-                document.getElementById('end').addEventListener('change', onChangeHandler);
 
-                //place marker on map
-                marker = new google.maps.Marker({
-                    map: map,
-                    draggable: true,
-                    animation: google.maps.Animation.DROP,
-                    position: { lat: 47.6062, lng: -122.3321 }
-                });
-                marker.addListener('click', toggleBounce);
-            }
+    <script>
+        var userAddress = "";
 
-            //bounce animation
-            function toggleBounce() {
-                if (marker.getAnimation() !== null) {
-                    marker.setAnimation(null);
+        //user address variable
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+            userAddress = $("#userInputAddress").val().trim();
+            console.log(userAddress);
+
+            var displayResults = document.getElementById("displayResults");
+
+            var selectList = document.createElement("select");
+            selectList.id = "start";
+            displayResults.appendChild(selectList);
+
+            var option = document.createElement("option");
+
+            option.value = userAddress;
+            option.text = userAddress;
+
+            selectList.appendChild(option);
+
+
+        });
+
+        //selected location variable
+
+        // maps function
+        function initMap() {
+            var directionsDisplay = new google.maps.DirectionsRenderer({
+                draggable: true,
+                map: map,
+                panel: document.getElementById('right-panel')
+            });
+            var directionsService = new google.maps.DirectionsService;
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: { lat: 47.6062, lng: -122.3321 }
+            });
+            directionsDisplay.setMap(map);
+            directionsDisplay.setPanel(document.getElementById('right-panel'));
+
+            var control = document.getElementById('floating-panel');
+            control.style.display = 'block';
+            map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
+
+            var onChangeHandler = function () {
+                calculateAndDisplayRoute(directionsService, directionsDisplay);
+            };
+            document.getElementById('start').addEventListener('change', onChangeHandler);
+            document.getElementById('end').addEventListener('change', onChangeHandler);
+        }
+
+
+        //show directions
+        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+            //start value should equal user address
+            var start = document.getElementById('start').value;
+            //end value is determined from reverse geocoding
+            var end = document.getElementById('end').value;
+            directionsService.route({
+                origin: start,
+                destination: end,
+                travelMode: 'DRIVING'
+            }, function (response, status) {
+                if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
                 } else {
-                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                    window.alert('Directions request failed due to ' + status);
                 }
-            }
+            });
+        }
 
-            //show directions
-            function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-                var start = document.getElementById('start').value;
-                var end = document.getElementById('end').value;
-                directionsService.route({
-                    origin: start,
-                    destination: end,
-                    travelMode: 'DRIVING'
-                }, function (response, status) {
-                    if (status === 'OK') {
-                        directionsDisplay.setDirections(response);
-                    } else {
-                        window.alert('Directions request failed due to ' + status);
-                    }
-                });
-            }
-
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_xzfPh18rbIi49vR0OfQ1z7J3TOuAw8Y&callback=initMap">
         </script>
-        <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_xzfPh18rbIi49vR0OfQ1z7J3TOuAw8Y&callback=initMap">
-            </script>
 
 </body>
 

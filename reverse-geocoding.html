@@ -31,61 +31,154 @@
             padding-left: 10px;
         }
 
-        #floating-panel {
-            position: absolute;
-            top: 5px;
-            left: 50%;
-            margin-left: -180px;
-            width: 350px;
-            z-index: 5;
-            background-color: #fff;
-            padding: 5px;
-            border: 1px solid #999;
+        #right-panel {
+            font-family: 'Roboto', 'sans-serif';
+            line-height: 30px;
+            padding-left: 10px;
         }
 
-        #latlng {
-            width: 225px;
+        #right-panel select,
+        #right-panel input {
+            font-size: 15px;
+        }
+
+        #right-panel select {
+            width: 100%;
+        }
+
+        #right-panel i {
+            font-size: 12px;
+        }
+
+        #right-panel {
+            height: 100%;
+            float: right;
+            width: 390px;
+            overflow: auto;
+        }
+
+        #map {
+            margin-right: 400px;
+        }
+
+        #floating-panel {
+            background: #fff;
+            padding: 5px;
+            font-size: 14px;
+            font-family: Arial;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+            display: none;
+        }
+        #floating-panel-two {
+            background: #fff;
+            padding: 5px;
+            font-size: 14px;
+            font-family: Arial;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+            display: none;
+            float: left;
+        }
+
+        @media print {
+            #map {
+                height: 500px;
+                margin: 0;
+            }
+
+            #right-panel {
+                float: none;
+                width: auto;
+            }
         }
     </style>
+
 </head>
 
 <body>
-    <div id="floating-panel">
-        <!-- change input typed in value to values pulled from hiker api -->
-        <input id="latlng" type="text" value="">
-        <input id="submit" type="button" value="Reverse Geocode">
+    <div id="floating-panel-two">
+        <b>Start: </b>
+        <select id="start">
+            <!-- examples to be populated with user input -->
+            <option value="seattle, wa">Seattle</option>
+        </select>
+        <b>End: </b>
+        <select id="end">
+            <!-- examples to be populate with inputs from hiker api -->
+            <option value="portland, or">Portland</option>
+        </select>
     </div>
+
+    <div id="floating-panel">
+            <!-- change input typed in value to values pulled from hiker api -->
+            <input id="latlng" type="text" value="">
+            <input id="submit" type="button" value="Reverse Geocode">
+        </div>
+
     <div id="map"></div>
     <script>
 
 
         function initMap() {
+            var geocoder = new google.maps.Geocoder;
+            var infowindow = new google.maps.InfoWindow;
+
+            var directionsDisplay = new google.maps.DirectionsRenderer({
+                draggable: true,
+                map: map,
+                panel: document.getElementById('right-panel')
+            });
+            var directionsService = new google.maps.DirectionsService;
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 8,
                 center: { lat: 47.6062, lng: -122.3321 }
             });
-            var geocoder = new google.maps.Geocoder;
-            var infowindow = new google.maps.InfoWindow;
+            directionsDisplay.setMap(map);
+            directionsDisplay.setPanel(document.getElementById('right-panel'));
 
-            document.getElementById('submit').addEventListener('click', function () {
-                geocodeLatLng(geocoder, map, infowindow);
-            });
+            var control = document.getElementById('floating-panel');
+            control.style.display = 'block';
+            map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
+
+            var onChangeHandler = function () {
+                calculateAndDisplayRoute(directionsService, directionsDisplay);
+            };
+            //when user selects address, change displayed directions
+            document.getElementById('start').addEventListener('change', onChangeHandler);
+            document.getElementById('end').addEventListener('change', onChangeHandler);
         }
 
+        //convert coordinates from hiker api to a string
+        //ex. "47.05, 234.234"
+        //ex. var input = JSON.stringify(hikerObj);
         function geocodeLatLng(geocoder, map, infowindow) {
+            //change input value to coordinates string from hiker api
             var input = document.getElementById('latlng').value;
             var latlngStr = input.split(',', 2);
             var latlng = { lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1]) };
             geocoder.geocode({ 'location': latlng }, function (results, status) {
                 if (status === 'OK') {
                     if (results[0]) {
-                        map.setZoom(11);
-                        var marker = new google.maps.Marker({
-                            position: latlng,
-                            map: map
-                        });
+
+                        // map.setZoom(11);
+                        // var marker = new google.maps.Marker({
+                        //     position: latlng,
+                        //     map: map
+
+                        // });
+                        // $("#floating-panel").remove();
                         infowindow.setContent(results[0].formatted_address);
-                        infowindow.open(map, marker);
+
+                        console.log(results[0].formatted_address);
+                        //
+
+
+
+
+
+
+
                     } else {
                         window.alert('No results found');
                     }
