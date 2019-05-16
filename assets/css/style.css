@@ -43,6 +43,15 @@ p {
     border: 6px solid #F0DCCA;
 }
 
+.sectionResults {
+    border-radius: 25px;
+    background-color: #8D9F87;
+    border: 6px solid #F0DCCA;
+}
+
+.sectionInput {
+    /* border: 2px solid rgb(0, 0, 0); */
+}
 
 .redBorder {
     border: 1px solid red;
@@ -55,4 +64,27 @@ p {
     /* margin: 2px; */
     background-color: #8D9F87;
     border: 6px solid #F0DCCA;
+}
+
+#white, #userLocation {
+    color: white;
+}
+
+#green {
+    color: #8D9F87;
+}
+
+#submit {
+    position: relative;
+    margin-top: 65px;
+    color: white;
+}
+
+.inputContainer {
+    border-radius: 25px;
+    background-color: #8D9F87;
+    border: 6px solid #F0DCCA;
+    padding-top: 25px;
+    padding-left: 79px;
+    padding-right: 0px;
 }
