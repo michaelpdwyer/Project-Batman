@@ -58,98 +58,107 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- User Inputs -->
+        <!-- User Inputs -->
 
-    <div class="container inputContainer">
-        <div class="row">
-            <!-- Location -->
-            <div class="col-sm-4 sectionInput">
-                <div class="form-group">
-                    <label for="formGroupExampleInput">
-                        <div id="white">Where are you located?</div>
-                        <div id="green">_____________________________________</div>
-                    </label>
-                    <input type="text" class="form-control" id="userLocation" placeholder="e.g. Seattle, WA">
+        <div class="inputContainer">
+            <div class="row">
+                <!-- Location -->
+                <div class="col-sm-3 sectionInput">
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">
+                            <div id="white">Your location?</div>
+                        </label>
+                        <input type="text" class="form-control" id="userLocation" placeholder=" e.g. Seattle, WA">
+                    </div>
+                </div>
+                <!-- Date -->
+                <div class="col-sm-3 sectionInput">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">
+                            <div id="white">Day of your hike?</div>
+                        </label>
+                        <input type="date" class="form-control" id="tripDate">
+                        <span id="isEmptyLeave" class="userVal"></span>
+                    </div>
+                </div>
+                <!-- Mile Radius -->
+                <div class="col-sm-2 sectionInput">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">
+                            <div id="white">Maximum miles?</div>
+                        </label>
+                        <select class="form-control" id="radius">
+                            <option>5</option>
+                            <option>10</option>
+                            <option>15</option>
+                            <option>20</option>
+                            <option>25</option>
+                            <option>50</option>
+                            <option>100</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Difficulty -->
+                <div class="col-sm-2 sectionInput">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">
+                            <div id="white">Difficulty level?</div>
+                        </label>
+                        <select class="form-control" id="difficulty">
+                            <option id="easyInput">Easy</option>
+                            <option id="mediumInput">Medium</option>
+                            <option id="hardInput">Hard</option>
+                            <option id="allInput">All</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Submit Button -->
+                <div class="col-sm-2 sectionInput">
+                    <button id="submit" type="button" class="btn btn-outline-secondary">Hike!</button>
                 </div>
             </div>
-            <!-- Date -->
-            <div class="col-sm-2 sectionInput">
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">
-                        <div id="white">What day do you plan to hike?</div>
-                    </label>
-                    <input type="date" class="form-control" id="tripDate">
-                    <span id="isEmptyLeave" class="userVal"></span>
-                </div>
-            </div>
-            <!-- Mile Radius -->
-            <div class="col-sm-2 sectionInput">
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">
-                        <div id="white">Search within how many miles of you?</div>
-                    </label><br><br>
-                    <select class="form-control" id="radius">
-                        <option>5</option>
-                        <option>10</option>
-                        <option>15</option>
-                        <option>20</option>
-                        <option>25</option>
-                        <option>50</option>
-                        <option>100</option>
-                    </select>
-                </div>
-            </div>
-            <!-- Difficulty -->
-            <div class="col-sm-2 sectionInput">
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">
-                        <div id="white">What difficulty level?</div>
-                        <div id="green">__________________________</div>
-                    </label><br><br>
-                    <select class="form-control" id="difficulty">
-                        <option id="easyInput">Easy</option>
-                        <option id="mediumInput">Medium</option>
-                        <option id="hardInput">Hard</option>
-                        <option id="allInput">All</option>
-                    </select>
-                </div>
-            </div>
-            <!-- Submit Button -->
-            <div class="col-sm-2 sectionInput">
-                <button id="submit" type="button" class="btn btn-outline-secondary">Hike!</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div>
-                    <p><strong>Search Results</strong></p>
-                </div>
-                <div id="tripDiv">
+        </div><br>
+        
+            <div class="row">
+                <div class="col-sm-12" id="tripDiv">
+                    <h3>Search Results</h3>
+                    <p>(Search results go inside here)</p>
                     <!-- SEARCH RESULTS GO INSIDE HERE!!!!! -->
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4 sectionAbout">
+            <div class="row">
+                <div class="col-sm-4 sectionAbout">
                     <!-- About me section here -->
                     <h3>About Hiker</h3>
-                    <p>Hiker makes it easy to find the perfect outdoor adventure. Whether you're a seasoned pro in search of a challenge or a newbie just looking for an easy trail to get started, you'll find the trail that works for you. Search the best trails&mdash;near or far&mdash;and enjoy accurate directions and weather forecasts that'll help you plan a memorable day.</p>
-            </div>
-            <div class="col-sm-7 sectionContact">
+                    <p>Hiker makes it easy to find the perfect outdoor adventure. Whether you're a seasoned pro in
+                        search of
+                        a challenge or a newbie just looking for an easy trail to get started, you'll find the trail
+                        that
+                        works for you. Search the best trails&mdash;near or far&mdash;and enjoy accurate directions and
+                        weather forecasts that'll help you plan a memorable day.</p>
+                </div>
+                <div class="col-sm-8 sectionContact">
                     <!-- Contact section here -->
                     <h3>Contact Hiker</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Your name</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Your email</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Your message</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
 </body>
 
