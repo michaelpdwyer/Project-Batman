@@ -11,123 +11,48 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- link to jQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <style>
-        #map {
-            height: 100%;
-        }
-
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        #floating-panel {
-            position: absolute;
-            top: 10px;
-            left: 25%;
-            z-index: 5;
-            background-color: #fff;
-            padding: 5px;
-            border: 1px solid #999;
-            text-align: center;
-            font-family: 'Roboto', 'sans-serif';
-            line-height: 30px;
-            padding-left: 10px;
-        }
-
-        #right-panel {
-            font-family: 'Roboto', 'sans-serif';
-            line-height: 30px;
-            padding-left: 10px;
-        }
-
-        #right-panel select,
-        #right-panel input {
-            font-size: 15px;
-        }
-
-        #right-panel select {
-            width: 100%;
-        }
-
-        #right-panel i {
-            font-size: 12px;
-        }
-
-        #right-panel {
-            height: 100%;
-            float: right;
-            width: 390px;
-            overflow: auto;
-        }
-
-        #map {
-            margin-right: 400px;
-        }
-
-        #floating-panel {
-            background: #fff;
-            padding: 5px;
-            font-size: 14px;
-            font-family: Arial;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
-            display: none;
-        }
-
-        @media print {
-            #map {
-                height: 500px;
-                margin: 0;
-            }
-
-            #right-panel {
-                float: none;
-                width: auto;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
+
+    <form>
+        <div class="form-group">
+            <input type="email" class="form-control" id="userInputAddress" aria-describedby="addressHelp"
+                placeholder="Enter your address">
+        </div>
+        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+    </form>
+
     <div id="mapDirections"></div>
-   
+
     <script>
 
         var userAddress = "";
+        var hikerAddress = "47.6062, -122.3321";
+        //trim function to remove spaces
 
         //user address variable
         $("#submit").on("click", function (event) {
             event.preventDefault();
 
+            userAddress = $("#userInputAddress").val().trim();
 
-            var hikerAddress = "tacoma, wa";
+            var mapsURL = "https://www.google.com/maps/dir/" + userAddress + "/" + hikerAddress;
+            encodeURI(mapsURL);
 
+            var uniqueForm = $("<form>");
+            uniqueForm.attr("action", mapsURL);
 
-        var anchor = $("<a>");
+            var uniqueButton = $("<input>");
+            uniqueButton.attr("type", "submit");
 
-        var mapsURL = "https://www.google.com/maps/dir/" + userAddress + "/" + hikerAddress;
-
-        anchor.append(mapsURL);
-
-            $("#mapDirections").append("<button id='letsGoHike'>Get Directions</button");
-
-                var a_href = $("#mapDirections").attr('href', anchor);
+                uniqueForm.append(uniqueButton);
+            $("#mapDirections").append(uniqueForm);
 
         });
 
-        var mapsURL = "https://www.google.com/maps/dir/" + userAddress + "/" + hikerAddress;
-
-        $('#letsGoHike').click(function() {
-  window.location=mapsURL;
-});
-
-        
-
-
+    </script>
 
 </body>
 
