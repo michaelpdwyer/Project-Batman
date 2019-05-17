@@ -26,9 +26,6 @@ img {
     border: 6px solid #F0DCCA;
 }
 
-.sectionImg {
-}
-
 h3 {
     font-weight: bold;
     margin-top: 15px;
@@ -60,10 +57,9 @@ p {
 }
 
 .sectionName {
-    max-width: 100%;
+    max-width: 23.2%;
+    margin-right: 1.8%;
     height: 240px;
-    /* height: 240px;
-    max-width: 750px; */
     border-radius: 25px;
     background-color: #8D9F87;
     border: 6px solid #F0DCCA;
@@ -71,7 +67,8 @@ p {
 
 .sectionAbout {
     border-radius: 25px;
-    /* margin: 2px; */
+    max-width: 31.5%;
+    margin-right: 1.83333333%;
     background-color: #8D9F87;
     border: 6px solid #F0DCCA;
 }
@@ -85,14 +82,14 @@ p {
 .image {
     height: 240px;
     max-width: 100%;
+}
 
 .sectionContact {
     border-radius: 25px;
-    margin-left: 15px;
     text-align: justify;
-    /* margin: 2px; */
     background-color: #8D9F87;
     border: 6px solid #F0DCCA;
+    color: whitesmoke;
 }
 
 #white, #userLocation {
@@ -105,8 +102,11 @@ p {
 
 #submit {
     position: relative;
-    margin-top: 65px;
-    color: white;
+    margin-top: 31px;
+    margin-left: 30px;
+    font-weight: bold;
+    color: ##8D9F87;
+    background-color: #F0DCCA;
 }
 
 .inputContainer {
@@ -114,6 +114,43 @@ p {
     background-color: #8D9F87;
     border: 6px solid #F0DCCA;
     padding-top: 25px;
-    padding-left: 79px;
+    padding-left: 35px;
     padding-right: 0px;
 }
+
+label {
+    Font-Family: ‘Muli’, Sans-Serif;
+    font-size: 16px;
+    color: whitesmoke;
+}
+
+input {
+    background-color: white!important;
+    
+}
+
+.row {
+    margin-left: 0!important;
+    margin-right: 0!important;
+}
+
+.sectionImage {
+    padding-right: 0!important;
+    padding-left: 0!important;
+}
+
+#tripDate {
+    padding-left: 3px;
+    color: #666b75;
+}
+
+#tripDiv {
+    border-radius: 25px;
+    background-color: #8D9F87;
+    border: 6px solid #F0DCCA;
+ }
+
+ .sectionResults {
+     padding-left: 0!important;
+     padding-right: 0!important;
+ }
