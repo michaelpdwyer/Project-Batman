@@ -43,14 +43,16 @@ p {
     border: 6px solid #F0DCCA;
 }
 
-.sectionResults {
+#tripDiv {
     border-radius: 25px;
     background-color: #8D9F87;
     border: 6px solid #F0DCCA;
 }
 
-.sectionInput {
-    /* border: 2px solid rgb(0, 0, 0); */
+.section {
+    border-radius: 25px;
+    background-color: #8D9F87;
+    border: 6px solid #F0DCCA;
 }
 
 .redBorder {
