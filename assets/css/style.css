@@ -1,7 +1,37 @@
+.nav-wrapper {
+    /* margin: 2px; */
+    background-color: #8D9F87;
+    border: 3px solid #F0DCCA;
+}
+
+ul {
+    font-weight: bold;
+    Font-Family: ‘Merriweather’, Serif;
+    color: whitesmoke;
+}
+
 /* Logo in nav bar */
 #logo {
     padding-left: 20px;
     font-weight: bold;
+    Font-Family: ‘Merriweather’, Serif;
+    color: whitesmoke;
+    font-size: 55px;
+}
+
+img {
+    height: 240px;
+    width: 825px;
+    border-radius: 25px;
+    border: 6px solid #F0DCCA;
+}
+
+.sectionImg {
+}
+
+h3 {
+    font-weight: bold;
+    margin-top: 15px;
     Font-Family: ‘Merriweather’, Serif;
     color: whitesmoke;
 }
@@ -24,19 +54,22 @@
 
 p {
     Font-Family: ‘Muli’, Sans-Serif;
+    color: whitesmoke;
     Font-Size: 16px;
+    text-align: justify;
 }
 
-.sectionOther {
+.sectionName {
+    max-width: 100%;
+    height: 240px;
+    /* height: 240px;
+    max-width: 750px; */
     border-radius: 25px;
-    /* margin: 2px; */
     background-color: #8D9F87;
     border: 6px solid #F0DCCA;
 }
 
-.sectionName {
-    height: 240px;
-    max-width: 750px;
+.sectionAbout {
     border-radius: 25px;
     /* margin: 2px; */
     background-color: #8D9F87;
@@ -49,20 +82,14 @@ p {
     border: 6px solid #F0DCCA;
 }
 
-.section {
-    border-radius: 25px;
-    background-color: #8D9F87;
-    border: 6px solid #F0DCCA;
-}
-
-.redBorder {
-    border: 1px solid red;
-}
-
 .image {
     height: 240px;
     max-width: 100%;
+
+.sectionContact {
     border-radius: 25px;
+    margin-left: 15px;
+    text-align: justify;
     /* margin: 2px; */
     background-color: #8D9F87;
     border: 6px solid #F0DCCA;
