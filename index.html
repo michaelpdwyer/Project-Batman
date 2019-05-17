@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="assets/images/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hiker</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a id="logo" class="brand-logo">Hiker</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container"><br>
+        <div class="row">
+            <div class="col-sm-3 sectionName">
+                <div class="sectionImg">
+                    <!-- Hiker logo here -->
+                    <h1 class="logo">H</h1>
+                </div>
+            </div>
+            <div class="col-sm-9 sectionImage">
+                <div>
+                    <!-- Image here -->
+                    <img class="image" src="assets/images/hikerImage.png" alt="Hiker Pic">
+                </div>
+            </div>
+        </div>
+
+        <!-- User Inputs -->
+
+        <div class="inputContainer">
+            <div class="row">
+                <!-- Location -->
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">
+                            <div id="white">Your location?</div>
+                        </label>
+                        <input type=" text" class="form-control" id="userLocation" placeholder=" e.g., Seattle, WA"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'e.g., Seattle, WA'">
+                    </div>
+                </div>
+                <!-- Date -->
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">
+                            <div id="white">Day of your hike?</div>
+                        </label>
+                        <input type="date" class="form-control" id="tripDate">
+                        <span id="isEmptyLeave" class="userVal"></span>
+                    </div>
+                </div>
+                <!-- Mile Radius -->
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">
+                            <div id="white">Maximum miles?</div>
+                        </label>
+                        <select class="form-control" id="radius">
+                            <option>5</option>
+                            <option>10</option>
+                            <option>15</option>
+                            <option>20</option>
+                            <option>25</option>
+                            <option>50</option>
+                            <option>100</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Difficulty -->
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">
+                            <div id="white">Difficulty level?</div>
+                        </label>
+                        <select class="form-control" id="difficulty">
+                            <option id="easyInput">Easy</option>
+                            <option id="mediumInput">Medium</option>
+                            <option id="hardInput">Hard</option>
+                            <option id="allInput">All</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Submit Button -->
+                <div class="col-sm-2">
+                    <button id="submit" type="button" class="btn btn-outline-secondary">Hike</button>
+                </div>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-sm-12" id="tripDiv">
+                <h3>Nearby hikes</h3>
+                <p>Run a search and find a trail!</p>
+                <!-- SEARCH RESULTS GO INSIDE HERE!!!!! -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="about" class="col-sm-4 sectionAbout">
+                <!-- About me section here -->
+                <h3>About Hiker</h3>
+                <p>Hiker makes it easy to find the perfect outdoor adventure. Whether you're a seasoned pro in search of
+                    a challenge or a newbie just looking for an easy trail to get started, you'll find the destination
+                    that works for you. Use Hiker to search the best trails&mdash;near or far&mdash;and make the most of
+                    your day in the wilderness. You'll also get driving directions and trail conditions to
+                    help remove the hassle of hiking. </p>
+            </div>
+            <div id="contact" class="col-sm-8 sectionContact">
+                <!-- Contact section here -->
+                <h3>Contact Hiker</h3>
+                <form action="mailto:michaelp.dwyer@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <input type=" text" class="form-control" id="name" placeholder="Your name"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your name'">
+                    </div>
+                    <div class="form-group">
+                        <input type=" email" class="form-control" id="exampleFormControlInput1" placeholder="Your email"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email'">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            placeholder="Your message" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Your message'"></textarea>
+                        <div class="col-sm-2 sectionSend">
+                            <button id="submit" type="button" class="btn btn-outline-secondary">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/javascript/app.js"></script>
+
+</html>
