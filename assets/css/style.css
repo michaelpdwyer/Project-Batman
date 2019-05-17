@@ -76,6 +76,16 @@ p {
     border: 6px solid #F0DCCA;
 }
 
+.sectionResults {
+    border-radius: 25px;
+    background-color: #8D9F87;
+    border: 6px solid #F0DCCA;
+}
+
+.image {
+    height: 240px;
+    max-width: 100%;
+
 .sectionContact {
     border-radius: 25px;
     margin-left: 15px;
@@ -83,4 +93,27 @@ p {
     /* margin: 2px; */
     background-color: #8D9F87;
     border: 6px solid #F0DCCA;
+}
+
+#white, #userLocation {
+    color: white;
+}
+
+#green {
+    color: #8D9F87;
+}
+
+#submit {
+    position: relative;
+    margin-top: 65px;
+    color: white;
+}
+
+.inputContainer {
+    border-radius: 25px;
+    background-color: #8D9F87;
+    border: 6px solid #F0DCCA;
+    padding-top: 25px;
+    padding-left: 79px;
+    padding-right: 0px;
 }
