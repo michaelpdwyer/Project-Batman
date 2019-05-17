@@ -1,0 +1,176 @@
+.nav-wrapper {
+    background-color: #8D9F87;
+    border: 3px solid #F0DCCA;
+}
+
+ul {
+    font-weight: bold;
+    Font-Family: ‘Merriweather’, Serif;
+    color: whitesmoke;
+}
+
+/* Logo in nav bar */
+#logo {
+    padding-left: 20px;
+    font-weight: bold;
+    Font-Family: ‘Merriweather’, Serif;
+    color: whitesmoke;
+    font-size: 55px;
+}
+
+img {
+    height: 240px;
+    width: 825px;
+    border-radius: 25px;
+    border: 6px solid #F0DCCA;
+}
+
+h3 {
+    font-weight: bold;
+    margin-top: 15px;
+    Font-Family: ‘Merriweather’, Serif;
+    color: whitesmoke;
+}
+
+.logo {
+    Font-Family: ‘Merriweather’, Serif;
+    Font-Size: 200px;
+    color: whitesmoke;
+    font-weight: bold;
+    text-align: center;
+}
+
+.name {
+        Font-Family: ‘Merriweather’, Serif;
+        Font-Size: 50px;
+        color: whitesmoke;
+        font-weight: bold;
+        text-align: center;
+}
+
+p {
+    Font-Family: ‘Muli’, Sans-Serif;
+    color: whitesmoke;
+    Font-Size: 16px;
+    text-align: justify;
+}
+
+.sectionName {
+    max-width: 23.2%;
+    margin-right: 1.8%;
+    height: 240px;
+    border-radius: 25px;
+    background-color: #8D9F87;
+    border: 6px solid #F0DCCA;
+}
+
+.sectionAbout {
+    border-radius: 25px;
+    max-width: 31.5%;
+    margin-right: 1.83333333%;
+    background-color: #8D9F87;
+    border: 6px solid #F0DCCA;
+}
+
+.sectionResults {
+    border-radius: 25px;
+    background-color: #8D9F87;
+    border: 6px solid #F0DCCA;
+}
+
+.image {
+    height: 240px;
+    max-width: 100%;
+}
+
+.sectionContact {
+    border-radius: 25px;
+    text-align: justify;
+    background-color: #8D9F87;
+    border: 6px solid #F0DCCA;
+    color: whitesmoke;
+}
+
+#white {
+    color: white;
+    font-weight: bold;
+}
+
+#green {
+    color: #8D9F87;
+}
+
+#submit {
+    position: relative;
+    margin-top: 31px;
+    margin-left: 30px;
+    font-weight: bold;
+    color: ##8D9F87;
+    background-color: #F0DCCA;
+}
+
+.inputContainer {
+    border-radius: 25px;
+    background-color: #8D9F87;
+    border: 6px solid #F0DCCA;
+    padding-top: 25px;
+    padding-left: 35px;
+    padding-right: 0px;
+}
+
+label {
+    Font-Family: ‘Muli’, Sans-Serif;
+    font-size: 16px;
+    color: whitesmoke;
+}
+
+input {
+    background-color: white!important;
+    
+}
+
+.row {
+    margin-left: 0!important;
+    margin-right: 0!important;
+}
+
+.sectionImage {
+    padding-right: 0!important;
+    padding-left: 0!important;
+}
+
+#tripDate {
+    padding-left: 3px;
+    color: #666b75;
+}
+
+#tripDiv {
+    border-radius: 25px;
+    background-color: #8D9F87;
+    border: 6px solid #F0DCCA;
+ }
+
+ .sectionResults {
+     padding-left: 0!important;
+     padding-right: 0!important;
+ }
+
+ .sectionSend {
+    border-radius: 25px;
+    padding-left: 600px;
+ }
+
+ nav ul a:hover {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+a:hover {
+    color: #F0DCCA;
+    text-decoration: none;
+  }
+
+nav ul a {
+    Font-Family: ‘Merriweather’, Serif;
+    font-size: 16px;
+    color: whitesmoke;
+}
