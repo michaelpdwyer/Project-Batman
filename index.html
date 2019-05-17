@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="assets/images/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project Batman</title>
+    <title>Hiker</title>
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -36,8 +37,8 @@
             <div class="nav-wrapper">
                 <a id="logo" class="brand-logo">Hiker</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="sass.html">About</a></li>
-                    <li><a href="badges.html">Contact Us</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -64,16 +65,17 @@
         <div class="inputContainer">
             <div class="row">
                 <!-- Location -->
-                <div class="col-sm-3 sectionInput">
+                <div class="col-sm-3">
                     <div class="form-group">
                         <label for="formGroupExampleInput">
                             <div id="white">Your location?</div>
                         </label>
-                        <input type="text" class="form-control" id="userLocation" placeholder=" e.g. Seattle, WA">
+                        <input type=" text" class="form-control" id="userLocation" placeholder=" e.g., Seattle, WA"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'e.g., Seattle, WA'">
                     </div>
                 </div>
                 <!-- Date -->
-                <div class="col-sm-3 sectionInput">
+                <div class="col-sm-3">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">
                             <div id="white">Day of your hike?</div>
@@ -83,7 +85,7 @@
                     </div>
                 </div>
                 <!-- Mile Radius -->
-                <div class="col-sm-2 sectionInput">
+                <div class="col-sm-2">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">
                             <div id="white">Maximum miles?</div>
@@ -100,7 +102,7 @@
                     </div>
                 </div>
                 <!-- Difficulty -->
-                <div class="col-sm-2 sectionInput">
+                <div class="col-sm-2">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">
                             <div id="white">Difficulty level?</div>
@@ -114,51 +116,52 @@
                     </div>
                 </div>
                 <!-- Submit Button -->
-                <div class="col-sm-2 sectionInput">
-                    <button id="submit" type="button" class="btn btn-outline-secondary">Hike!</button>
+                <div class="col-sm-2">
+                    <button id="submit" type="button" class="btn btn-outline-secondary">Hike</button>
                 </div>
             </div>
         </div><br>
-        
-            <div class="row">
-                <div class="col-sm-12" id="tripDiv">
-                    <h3>Search Results</h3>
-                    <p>(Search results go inside here)</p>
-                    <!-- SEARCH RESULTS GO INSIDE HERE!!!!! -->
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-sm-4 sectionAbout">
-                    <!-- About me section here -->
-                    <h3>About Hiker</h3>
-                    <p>Hiker makes it easy to find the perfect outdoor adventure. Whether you're a seasoned pro in
-                        search of
-                        a challenge or a newbie just looking for an easy trail to get started, you'll find the trail
-                        that
-                        works for you. Search the best trails&mdash;near or far&mdash;and enjoy accurate directions and
-                        weather forecasts that'll help you plan a memorable day.</p>
-                </div>
-                <div class="col-sm-8 sectionContact">
-                    <!-- Contact section here -->
-                    <h3>Contact Hiker</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Your name</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Your email</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Your message</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                    </form>
-                </div>
+        <div class="row">
+            <div class="col-sm-12" id="tripDiv">
+                <h3>Nearby hikes</h3>
+                <p>Run a search and find a trail!</p>
+                <!-- SEARCH RESULTS GO INSIDE HERE!!!!! -->
             </div>
         </div>
+
+        <div class="row">
+            <div id="about" class="col-sm-4 sectionAbout">
+                <!-- About me section here -->
+                <h3>About Hiker</h3>
+                <p>Hiker makes it easy to find the perfect outdoor adventure. Whether you're a seasoned pro in search of
+                    a challenge or a newbie just looking for an easy trail to get started, you'll find the destination
+                    that works for you. Use Hiker to search the best trails&mdash;near or far&mdash;and make the most of
+                    your day in the wilderness. You'll also get driving directions and trail conditions to
+                    help remove the hassle of hiking. </p>
+            </div>
+            <div id="contact" class="col-sm-8 sectionContact">
+                <!-- Contact section here -->
+                <h3>Contact Hiker</h3>
+                <form action="mailto:michaelp.dwyer@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <input type=" text" class="form-control" id="name" placeholder="Your name"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your name'">
+                    </div>
+                    <div class="form-group">
+                        <input type=" email" class="form-control" id="exampleFormControlInput1" placeholder="Your email"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email'">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            placeholder="Your message" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Your message'"></textarea>
+                        <div class="col-sm-2 sectionSend">
+                            <button id="submit" type="button" class="btn btn-outline-secondary">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
 </body>
 
