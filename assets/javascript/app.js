@@ -21,7 +21,7 @@ $(document).ready(function () {
         //variable to create a map for each difficulty input to the API color values
         //this allows us to convert the six Hiker API difficulty tiers to our three tier difficulty input
         var listDifficulty = {
-            'Green (Easy)': [
+            'Easy': [
                 'green',
                 'greenBlue'
             ],
@@ -63,6 +63,7 @@ $(document).ready(function () {
                     .then(function (response) {
                         // Storing an array of results in the results variable
                         var results = response.trails;
+                        console.log(results);
 
                         //empty the hike info div
                         hikeInfo.empty();
@@ -108,6 +109,7 @@ $(document).ready(function () {
                                 var uniqueButton = $("<input id='directionsButton'>");
                                 uniqueButton.attr("type", "submit");
                                 uniqueButton.val("Get Directions");
+    
                                 //append button to form
                                 uniqueForm.append(uniqueButton);
 
